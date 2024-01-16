@@ -1,0 +1,19 @@
+{
+  "name": "httpbin_v2",
+  "version": "1.0.0",
+  "description": "HTTP Bin API Version 2",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "newman": "^6.1.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "integration-tests" : "newman run ./test/integration/integration-tests.json",
+    "api-lint" : "apigeelint -s apiproxy -f table.js"
+  },
+  "dependencies": {
+    "apigeelint": "^2.39.0"
+  }
+}

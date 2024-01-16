@@ -1,0 +1,58 @@
+{
+    "version":"1.0",
+    "orgConfig" : {
+        "developers":[
+            {
+               "email":"john@example.com",
+               "firstName":"John",
+               "lastName":"Example",
+               "userName":"johnexample",
+               "attributes":[
+                  
+               ]
+            },
+            {
+               "email":"bill@unesco.com",
+               "firstName":"Bill",
+               "lastName":"Buffalo",
+               "userName":"billunesco",
+               "attributes":[
+                  
+               ]
+            }
+         ]
+    },
+    "evnConfig" : {
+        "test" : {
+            "caches" : [
+                {
+                    "name":"echocache",
+                    "description":"echo cache",
+                    "expirySettings":{
+                       "timeoutInSec":{
+                          "value":"300"
+                       },
+                       "valuesNull":false
+                    }
+                 }
+            ]
+        }
+        
+    },
+    "apiConfig" : {
+        "httpbin_v2" : {
+            "kvms" : [
+                {
+                    "entry": [
+                        {
+                            "name": "EXCHANGE",
+                            "value": "0.5"
+                        }
+                    ],
+                    "name": "exchange_config"
+                }
+            ]
+        }
+    }
+
+}

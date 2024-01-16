@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "bae27f9e-e6e8-4fab-8c77-067877729e90",
+		"name": "httpbin_v2_tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8069213"
+	},
+	"item": [
+		{
+			"name": "StatusCode 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://zubermohammed.cloudns.eu:9001/httpbin_v2/status/400?apikey=9hCJYIQJQHlQVAGxcHLYrG0wjsoYybC2",
+					"protocol": "http",
+					"host": [
+						"zubermohammed",
+						"cloudns",
+						"eu"
+					],
+					"port": "9001",
+					"path": [
+						"httpbin_v2",
+						"status",
+						"400"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "9hCJYIQJQHlQVAGxcHLYrG0wjsoYybC2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "invalidAPIKey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response errorCode to be InvalidAPIKey\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.fault.detail.errorcode).to.be.equal(\"oauth.v2.InvalidApiKey\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://zubermohammed.cloudns.eu:9001/httpbin_v2/status/400?apikey=invalid",
+					"protocol": "http",
+					"host": [
+						"zubermohammed",
+						"cloudns",
+						"eu"
+					],
+					"port": "9001",
+					"path": [
+						"httpbin_v2",
+						"status",
+						"400"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "invalid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getIp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check IP is not null\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.origin).to.not.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://zubermohammed.cloudns.eu:9001/httpbin_v2/ip?apikey=9hCJYIQJQHlQVAGxcHLYrG0wjsoYybC2",
+					"protocol": "http",
+					"host": [
+						"zubermohammed",
+						"cloudns",
+						"eu"
+					],
+					"port": "9001",
+					"path": [
+						"httpbin_v2",
+						"ip"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "9hCJYIQJQHlQVAGxcHLYrG0wjsoYybC2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

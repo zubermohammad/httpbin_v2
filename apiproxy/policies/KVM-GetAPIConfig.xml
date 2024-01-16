@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetAPIConfig" mapIdentifier="api_httpbin_kvm">
+    <DisplayName>KVM-GetAPIConfig</DisplayName>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <Get assignTo="spikerate" index="1">
+        <Key>
+            <Parameter>spikerate</Parameter>
+        </Key>
+    </Get>
+    <Scope>apiproxy</Scope>
+</KeyValueMapOperations>
